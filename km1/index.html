@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tasks</title>
+	<style type="text/css">
+		.done {
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model = "taskItem" >
+		<button @click='addTask' >add Task</button>
+		<ol>
+			<li v-for='(task, index) in tasks'>
+				<input type="checkbox" v-model="task.status" @click='addTaskFinished(index)'> 
+				<span v-bind:class ="[task.status ? 'done' : '']">{{task.item}}</span>
+				<button @click="deleteTask(index)">X</button>			
+			</li>
+				
+		</ol>
+		<ol>
+			<li v-for='(taskFnd, index) in taskFinished'>
+				<span>{{taskFnd.item}}</span>
+				<button >X</button>
+			</li>
+		</ol>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.0/dist/vue.js"></script>
+	<script>
+			const app = new Vue ({
+			el: '#app',
+			data: {
+				
+				tasks: [{
+					item: 'Ihor',
+					status: false,
+				}],
+				taskFinished:[{
+					item: 'Ihor Done',
+					status: true,
+				}],
+				
+				taskItem: '',
+				},
+				 
+			methods: {
+				addTask: function (){
+					this.tasks.push({ item: this.taskItem, status: false});
+					this.taskItem = '';
+				},
+				deleteTask: function (id){
+					this.tasks.splice(id,1)
+					
+				},	
+				addTaskFinished: function(id){
+					this.taskFinished.push(this.tasks[id]);
+					this.deleteTask(id);
+				}
+				
+			},
+		})
+			
+	</script>
+	
+</body>
+</html>

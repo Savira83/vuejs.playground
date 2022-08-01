@@ -15,18 +15,23 @@
 		<input type="text" v-model = "taskItem" >
 		<button @click='addTask' >add Task</button>
 		<ol>
-			<li v-for='(task, index) in tasks'>
-				<input type="checkbox" v-model="task.status" @click='addTaskFinished(index)'> 
-				<span v-bind:class ="[task.status ? 'done' : '']">{{task.item}}</span>
-				<button @click="deleteTask(index)">X</button>			
-			</li>
+			<template v-for='(task, index) in tasks'>
+				<li v-if = "!task.status">
+					<input type="checkbox" v-model="task.status" @click='addTaskFinished(index)'> 
+					<span v-bind:class ="[task.status ? 'done' : '']">{{task.item}}</span>
+					<button @click="deleteTask(index)">X</button>			
+				</li>
+			</template>
 				
 		</ol>
 		<ol>
-			<li v-for='(taskFnd, index) in taskFinished'>
-				<span>{{taskFnd.item}}</span>
-				<button @click = "returnTask(index)" >↑</button>
-			</li>
+			<template v-for='(task, index) in tasks'>
+				<li v-if = "task.status">
+					<span>{{task.item}}</span>
+					<button @click = "returnTask(index)">↑</button>
+				</li>
+			</template>
+
 		</ol>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.0/dist/vue.js"></script>
@@ -34,7 +39,6 @@
 			const app = new Vue ({
 			el: '#app',
 			data: {
-				
 				tasks: [{
 					item: 'Ihor',
 					status: false,
@@ -43,7 +47,6 @@
 					item: 'Ihor Done',
 					status: true,
 				}],
-				
 				taskItem: '',
 				},
 				 
@@ -56,19 +59,21 @@
 					this.tasks.splice(id,1);
 				},	
 				addTaskFinished: function(id){
-					this.taskFinished.push(this.tasks[id]);
-					this.deleteTask(id);
+					let task = this.tasks[id];
+					task.status = true;
+					//this.taskFinished.push(task);
+					//this.deleteTask(id);
 				},
 				returnTask: function(id){
-					this.tasks.push(this.taskFinished[id]);
-					this.taskFinished.splice(id,1);;
-				}
+					let task = this.tasks[id];
+					task.status = false;
 
-				
+					//this.tasks.push(task);
+					//this.taskFinished.splice(id,1);;
+				}
 			},
 		})
 			
 	</script>
-	
 </body>
 </html>

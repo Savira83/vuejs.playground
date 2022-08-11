@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tasks1</title>
+</head>
+<body>
+	<div id="app">
+		<ul >
+			<span>Categories </span>
+			<li v-for = "(category, index) in categories"> 
+				<span>{{category.name}}<input type="button" value="+" @click = "AddNewCategory(index)"></span> 
+				<ul v-for = "(task, num) in category.tasks">
+					<li >
+					<span>{{task.name}}<input type="button" value="+" @click = "AddNewTask(num)"> </span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.7.0/dist/vue.js"></script>
+	<script>
+			const app = new Vue ({
+			el: '#app',
+			data: {	
+			categories: 			
+				[
+					{
+					name: 'category 1',
+					tasks: [{
+							name: 'Task 1.1',
+							status: false,
+							},
+							{name: 'Task 1.2',
+							status: false,
+					}] 
+					},
+					{
+					name: 'category 2',
+					tasks: [{
+							name: 'Task 2.1',
+							status: false,
+							},
+							{name: 'Task 2.2',
+							status: false,
+							}], 
+					},
+					
+				],
+				newCategory: '',
+			},
+			methods: {
+					AddNewCategory: function(id){ 
+						this.categories.push({name: prompt('Add new category')});
+					},
+					AddNewTask: function (id) {
+						this.categories[id].tasks.push({name: prompt('Add new task')})
+					}
+			}
+
+					 		
+		})
+			
+	</script>
+</body>
+</html>

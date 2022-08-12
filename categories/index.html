@@ -8,12 +8,23 @@
 <body>
 	<div id="app">
 		<ul >
-			<span>Categories </span>
-			<li v-for = "(category, index) in categories"> 
-				<span>{{category.name}}<input type="button" value="+" @click = "AddNewCategory(index)"></span> 
-				<ul v-for = "(task, num) in category.tasks">
-					<li >
-					<span>{{task.name}}<input type="button" value="+" @click = "AddNewTask(num)"> </span>
+			<span>Categories <input type="button" value="+" @click = "AddNewCategory"></span>
+			<li v-for = "(category, num) in categories"> 
+				<span>{{category.name}}<input type="button" value="+" @click = "AddNewTask(num)"></span> 
+				<ul v-for = "(task, index) in category.tasks">
+					<li v-if="!task.status" ><input type="checkbox" v-model = "task.status" @click = "changeTaskStatus(num)">
+					<span>{{task.name}}<input type="button" value="adit"  @click ="editTask(num, index)"> </span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul >
+			<span> Done Task Categories <input type="button" value="+" @click = "AddNewCategory"></span>
+			<li v-for = "(category, num) in categories"> 
+				<span>{{category.name}}<input type="button" value="+" @click = "AddNewTask(num)"></span> 
+				<ul v-for = "(task) in category.tasks">
+					<li v-if="task.status" ><input type="checkbox" v-model = "task.status" @click = "changeTaskStatus(num)">
+					<span>{{task.name}} </span>
 					</li>
 				</ul>
 			</li>
@@ -51,15 +62,21 @@
 				newCategory: '',
 			},
 			methods: {
-					AddNewCategory: function(id){ 
-						this.categories.push({name: prompt('Add new category')});
+					AddNewCategory: function(){ 
+						this.categories.push({name: prompt('Add new category'), tasks:[]});
 					},
 					AddNewTask: function (id) {
-						this.categories[id].tasks.push({name: prompt('Add new task')})
-					}
-			}
-
-					 		
+						this.categories[id].tasks.push({name: prompt('Add new task'), status: false})
+					},
+					changeTaskStatus: function (id){
+						let task = this.categories[id].tasks;
+						task.status = true;
+					},
+					editTask: function (id, tid){
+						let task = this.categories[id].tasks[tid];
+						task.name = prompt('Adit task', task.name);
+					},
+			}				 		
 		})
 			
 	</script>

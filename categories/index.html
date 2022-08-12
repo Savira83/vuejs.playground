@@ -13,7 +13,7 @@
 				<span>{{category.name}}<input type="button" value="+" @click = "AddNewTask(num)"></span> 
 				<ul v-for = "(task, index) in category.tasks">
 					<li v-if="!task.status" ><input type="checkbox" v-model = "task.status" @click = "changeTaskStatus(num)">
-					<span>{{task.name}}<input type="button" value="adit"  @click ="editTask(num, index)"> </span>
+						<span>{{task.name}}<input type="button" value="adit"  @click ="editTask(num, index)"> </span>
 					</li>
 				</ul>
 			</li>
@@ -24,7 +24,7 @@
 				<span>{{category.name}}<input type="button" value="+" @click = "AddNewTask(num)"></span> 
 				<ul v-for = "(task) in category.tasks">
 					<li v-if="task.status" ><input type="checkbox" v-model = "task.status" @click = "changeTaskStatus(num)">
-					<span>{{task.name}} </span>
+						<span>{{task.name}} </span>
 					</li>
 				</ul>
 			</li>
@@ -56,8 +56,7 @@
 							{name: 'Task 2.2',
 							status: false,
 							}], 
-					},
-					
+					},	
 				],
 				newCategory: '',
 			},
@@ -77,8 +76,7 @@
 						task.name = prompt('Adit task', task.name);
 					},
 			}				 		
-		})
-			
+		})	
 	</script>
 </body>
 </html>

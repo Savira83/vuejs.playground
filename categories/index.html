@@ -8,7 +8,7 @@
 <body>
 	<div id="app">
 		<ul >
-			<span>Categories <input type="button" value="+" @click = "AddNewCategory"></span>
+			<span>Categories of tasks <input type="button" value="+" @click = "AddNewCategory"></span>
 			<li v-for = "(category, num) in categories"> 
 				<span>{{category.name}}<input type="button" value="+" @click = "AddNewTask(num)"></span> 
 				<ul v-for = "(task, index) in category.tasks">

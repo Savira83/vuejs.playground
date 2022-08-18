@@ -12,7 +12,7 @@ import TaskList from './components/TaskList.vue'
 export default {
   name: 'App',
   components: {
-    TaskList
+    TaskList,
   },
   data (){
     return{
@@ -22,12 +22,11 @@ export default {
           id:1,
           name: 'category 1',
           tasks: [{
-              
+              index:'dt',
               taskName: 'Task 1.1',
               status: false,
               },
               {
-              
               taskName: 'Task 1.2',
               status: false,
           }] 
@@ -36,7 +35,7 @@ export default {
   },
   methods:{
     addNewCategory: function(){ 
-            alert(" nnn");
+            this.categories.push({name: prompt('Add new category'), tasks:[]});
      }
   }
 }

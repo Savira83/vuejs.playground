@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import AddTask from './components/AddTask.vue'
+import AddTask from './AddTask.vue'
 export default{
 	components:{
 		AddTask

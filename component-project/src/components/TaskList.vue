@@ -1,12 +1,15 @@
 <template>
 	<div>
 		<ul>
-			<li>
-				{{name}}
-				<input type="button" value="+" @click="$emit('addCategory')">
+			<li v-for='category  in categories'
+  :key = 'category.id'
+  :name = 'category.name'
+  @add-category='addNewCategory'>
+				{{category.name}}
+				<input type="button" value="+" @click='addNewCategory'>
+				<AddTask v-for = 'task in category.tasks' :key = 'task.index' :taskName='task.taskName' ></AddTask>
 			</li>
 		</ul> 
-		<AddTask v-for = 'task in category.tasks' :key = 'task.index' :taskName='task.taskName'></AddTask>
 	</div>
 </template>
 
@@ -17,9 +20,9 @@ export default{
 		AddTask
 	},
 	props:['id','name'],
-	//emits: ['addCategory'],
+	//emits: ['addCategory']
 	data (){
-    return{
+    return {
       categories:       
         [
           {
@@ -36,12 +39,13 @@ export default{
               status: false,
           }] 
           }
-          ]
+         ]
     }
-  },
-
-
-}
-
-	
+   },
+  methods:{
+    addNewCategory: function(){ 
+      this.categories.push({name: prompt('Add new category'), tasks:[]});
+     }
+  }
+  }
 </script>

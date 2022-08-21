@@ -46,7 +46,6 @@ export default{
      },
      AddNewTask: function (id) {
             this.categories[id].tasks.push({taskName: prompt('Add new task'), status: false})
-           console.log('add ')
           },
       changeTaskStatus: function (id, ts){
             let task = this.categories[id].tasks[ts];

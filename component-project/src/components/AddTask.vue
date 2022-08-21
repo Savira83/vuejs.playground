@@ -1,13 +1,15 @@
 <template>
 	<ul>
-		<li>
+		<li><input type="checkbox" @click="$emit('changeStatus')">
 			{{taskName}}
+			{{status}}
+			<button @click="$emit('addTask')">+</button>
 		</li>
 	</ul>
 </template>
 <script>
 	export default {
-		props: ['index','taskName']
-
+		props: ['taskName', 'status'],
+		emits:['addTask', 'changeStatus']
 	}
 </script>

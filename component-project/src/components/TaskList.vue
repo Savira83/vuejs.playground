@@ -1,24 +1,44 @@
 <template>
 	<div>
+    <div>
+      <h3>Fals category<input type="button" value="+" @click='addNewCategory'></h3>
 		<ul>
-			<li v-for='(category, id)  in categories'
-  :key = 'id'
-  :name = 'category.name'
-  @add-category='addNewCategory(id)'>
+			<li v-for='(category, id)  in categories' :key = 'id'>
 				{{category.name}}
-				<input type="button" value="+" @click='addNewCategory'>
-				<AddTask v-for = '(task, ind) in category.tasks' :key = 'ind' :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask(id, ind)' @change-status = 'changeTaskStatus(id, ind)'>
-        </AddTask>
+      <button @click='AddNewTask(id)'  >+</button>
+      <span v-for = '(task, ind) in category.tasks' :key = 'ind'>
+        <span v-if='!task.status'>
+				<TaskItem  :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask' @change-status = 'changeTaskStatus(id, ind)'>
+        </TaskItem>
+        </span>
+      </span>
 			</li>
-		</ul> 
+		</ul>
+    </div> 
+    
+    <div>
+      <h3>True category<input type="button" value="+" @click='addNewCategory'></h3>
+      <ul>
+        <li v-for='(category, id)  in categories' :key = 'id'>
+          {{category.name}}
+        <button @click='AddNewTask(id)'  >+</button>
+        <span v-for = '(task, ind) in category.tasks' :key = 'ind'>
+          <span v-if='task.status'>
+          <TaskItem  :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask' @change-status = 'changeTaskStatus(id, ind)'>
+          </TaskItem>
+          </span>
+        </span>
+        </li>
+      </ul>
+    </div>
 	</div>
 </template>
 
 <script>
-import AddTask from './AddTask.vue'
+import TaskItem from './TaskItem.vue'
 export default{
 	components:{
-		AddTask
+		TaskItem
 	},
 	props:['name'],
 	//emits: ['addCategory']

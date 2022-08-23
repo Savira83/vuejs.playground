@@ -8,7 +8,7 @@
       <button @click='AddNewTask(id)'  >+</button>
       <span v-for = '(task, ind) in category.tasks' :key = 'ind'>
         <span v-if='!task.status'>
-				<TaskItem  :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask' @change-status = 'changeTaskStatus(id, ind)'>
+				<TaskItem  :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask' @change-status = 'changeTaskStatus(id, ind)' @edit-task = 'editTask(id, ind)' @remove-task = 'deleteTask (id, ind)'>
         </TaskItem>
         </span>
       </span>
@@ -23,10 +23,10 @@
           {{category.name}}
         <button @click='AddNewTask(id)'  >+</button>
         <span v-for = '(task, ind) in category.tasks' :key = 'ind'>
-          <span v-if='task.status'>
-          <TaskItem  :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask' @change-status = 'changeTaskStatus(id, ind)'>
-          </TaskItem>
-          </span>
+          <div v-if='task.status'>
+          <TaskItem  :taskName='task.taskName' :status = 'task.status'  >
+          </TaskItem><button @click = 'turnBackTask(id,ind)' >↑</button>
+          </div>
         </span>
         </li>
       </ul>
@@ -71,6 +71,20 @@ export default{
             let task = this.categories[id].tasks[ts];
             task.status = true;
           },
+      editTask: function (id, tid){
+            let task = this.categories[id].tasks[tid];
+            task.taskName = prompt('Adit task', task.taskName);
+          },
+      turnBackTask: function(id, tid){
+        let task = this.categories[id].tasks[tid];
+        task.status = false;
+      },
+      deleteTask: function (id, tid){
+        let task = this.categories[id].tasks[tid].taskName;
+        this.categories.splice(task, 1);
+        //task.remove();
+
+      }
   }
   }
 </script>

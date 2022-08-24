@@ -4,7 +4,7 @@
 			{{taskName}}
 			{{status}}
 		<button @click= "$emit('editTask')">edit</button>
-		<button @click = "$emit('remove')">x</button>	
+		<button @click = "$emit('removeTask')">x</button>	
 
 		</li>
 	</ul>
@@ -12,6 +12,6 @@
 <script>
 	export default {
 		props: ['taskName', 'status'],
-		emits:[ 'changeStatus', 'editTask', 'remove']
+		emits:[ 'changeStatus', 'editTask', 'removeTask']
 	}
 </script>

@@ -2,18 +2,18 @@
 	<div>
     <div>
       <h3>Fals category<input type="button" value="+" @click='addNewCategory'></h3>
-		<ul>
+		<ol>
 			<li v-for='(category, id)  in categories' :key = 'id'>
 				{{category.name}}
       <button @click='AddNewTask(id)'  >+</button>
       <span v-for = '(task, ind) in category.tasks' :key = 'ind'>
         <span v-if='!task.status'>
-				<TaskItem  :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask' @change-status = 'changeTaskStatus(id, ind)' @edit-task = 'editTask(id, ind)' @remove-task = 'deleteTask (id, ind)'>
+				<TaskItem  :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask' @change-status = 'changeTaskStatus(id, ind)' @edit-task = 'editTask(id, ind)' @remove-task = 'deleteTask (id, ind)' @move-up = 'moveUp(id, ind)' @move-down = 'moveDown(id, ind+1)'>
         </TaskItem>
         </span>
       </span>
 			</li>
-		</ul>
+		</ol>
     </div> 
     
     <div>
@@ -81,7 +81,20 @@ export default{
       },
       deleteTask: function (id, tid){
           this.categories[id].tasks.splice(tid, 1);
+      },
+      moveUp: function(id, fromid){
+        let task = this.categories[id].tasks[fromid]
+        this.categories[id].tasks.splice(fromid, 1)
+        this.categories[id].tasks.splice(fromid-1, 0, task);
+
+      },
+       moveDown: function(id, fromid){
+        let task = this.categories[id].tasks[fromid]
+        this.categories[id].tasks.splice(fromid, 1)
+        this.categories[id].tasks.splice(fromid+1, 0, task);
+
       }
+     
   }
   }
 </script>

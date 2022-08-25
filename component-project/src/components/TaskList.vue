@@ -8,7 +8,7 @@
       <button @click='AddNewTask(id)'  >+</button>
       <span v-for = '(task, ind) in category.tasks' :key = 'ind'>
         <span v-if='!task.status'>
-				<TaskItem  :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask' @change-status = 'changeTaskStatus(id, ind)' @edit-task = 'editTask(id, ind)' @remove-task = 'deleteTask (id, ind)' @move-up = 'moveUp(id, ind)' @move-down = 'moveDown(id, ind+1)'>
+				<TaskItem  :taskName='task.taskName' :status = 'task.status' @add-task = 'AddNewTask' @change-status = 'changeTaskStatus(id, ind)' @edit-task = 'editTask(id, ind)' @remove-task = 'deleteTask (id, ind)' @move-up = 'moveUp(id, ind)' @move-down = 'moveDown(id, ind)'>
         </TaskItem>
         </span>
       </span>

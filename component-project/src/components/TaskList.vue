@@ -84,15 +84,25 @@ export default{
       },
       moveUp: function(id, fromid){
         let task = this.categories[id].tasks[fromid]
-        this.categories[id].tasks.splice(fromid, 1)
-        this.categories[id].tasks.splice(fromid-1, 0, task);
-
+        if (fromid === 0){
+          this.categories[id].tasks.splice(fromid, 1)
+          this.categories[id].tasks.splice(fromid, 0, task);
+        }
+        else{
+          this.categories[id].tasks.splice(fromid, 1)
+          this.categories[id].tasks.splice(fromid-1, 0, task); 
+        }
       },
        moveDown: function(id, fromid){
         let task = this.categories[id].tasks[fromid]
+        if(fromid === task.length){
+          this.categories[id].tasks.splice(fromid, 1)
+          this.categories[id].tasks.splice(fromid, 0, task);
+        }
+        else {
         this.categories[id].tasks.splice(fromid, 1)
         this.categories[id].tasks.splice(fromid+1, 0, task);
-
+        }
       }
      
   }

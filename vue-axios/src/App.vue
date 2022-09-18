@@ -36,6 +36,7 @@ export default {
 .header{
   height: 100px;
   border: 1px solid;
+  color: lightgray;
 
 }
 .main{

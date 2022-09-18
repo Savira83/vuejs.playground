@@ -1,7 +1,7 @@
 <template>
   <TaskList></TaskList>
+  
 </template>
-
 <script>
 import TaskList from './components/TaskList.vue'
 

@@ -24,7 +24,7 @@
         <button @click='AddNewTask(id)'  >+</button>
         <span v-for = '(task, ind) in category.tasks' :key = 'ind'>
           <div v-if='task.status'>
-          <TaskItem  :taskName='task.taskName' :status = 'task.status' @edit-task = 'editTask(id, ind)' @remove-task = 'deleteTask (id, ind)' >
+          <TaskItem  :taskName='task.taskName' :status = 'task.status' @edit-task = 'editTask(id, ind)' @remove-task = 'deleteTask (id, ind)' @move-up = 'moveUp(id, ind)' @move-down = 'moveDown(id, ind)'>
           </TaskItem><button @click = 'turnBackTask(id,ind)'>↑</button>
           </div>
         </span>

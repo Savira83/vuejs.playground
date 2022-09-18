@@ -1,0 +1,15 @@
+{ "workers":[
+	{"id": 1,
+	 "name": "Iryna",
+	 "position": "head of sector"},
+	{"id": 2,
+	 "name": "Marina",
+	 "position": "counter"},
+	{"id":3,
+	 "name": "Oleg",
+	 "position":"head of sector"},
+	 {"id":3,
+	  "name":"Diana",
+	  "position":"chief specialist"}
+]
+}

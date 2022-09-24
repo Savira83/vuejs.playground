@@ -1,0 +1,23 @@
+{ "workers":[
+	{"id": 1,
+	 "name": "Iryna",
+	 "position": "head of sector",
+	"slug": "addIryna",
+	"image": "iryna.jpg"},
+	{"id": 2,
+	 "name": "Maryna",
+	 "position": "counter",
+	"slug": "addMaryna",
+	"image": "maryna.jpg"},
+	{"id":3,
+	 "name": "Oleg",
+	 "position":"head of sector",
+	"slug":"addOleg",
+	"image":"oleg.jpg"},
+	 {"id":4,
+	  "name":"Diana",
+	  "position":"chief specialist",
+	 "slug": "addDiana",
+	"image":"diana.jpg"}
+]
+}

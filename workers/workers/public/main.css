@@ -88,7 +88,7 @@ a:visited {
 }
 #nav a.router-link-active,
 #nav a:hover {
-  opacity: 1;
+  color: green;
 }
 #logo {
   font-weight: bold;

@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<h1>Home</h1> 
+		<h1>All workers</h1> 
 	<div class="destinations">
 	<router-link v-for = "worker in info" :key="worker.id" :to ="worker.slug">{{worker.name}}
 		<img :src="`images1/${worker.image}`" :alt="worker.name"></router-link>

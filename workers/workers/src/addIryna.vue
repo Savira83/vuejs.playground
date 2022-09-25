@@ -2,7 +2,7 @@
 	<div class="iryna">
 		<h1>Iryna</h1>
 		<img :src="`images1/iryna.jpg`">
-		<router-link v-for = "(worker) in info" :key="worker.id"   :to ="worker.slug"> {{worker.position}}
+		<router-link v-for = "(worker) in info"  :key="worker.id"   :to ="worker.slug" > <span v-if="worker.name=='Iryna'">{{worker.position}} - {{worker.description}}</span>
 		</router-link>
 	</div>
 	

@@ -1,34 +1,41 @@
 <template>
-	<h2>{{worker.name}}</h2>
-	<div class = "worker">
-	{{worker.position}}
-	<img :src="require(`@/images1/${worker.image}`)">
-	{{worker.description}}
-	</div>
-
+	<span v-if="worker">
+		<h2>{{worker.name}}</h2>
+		<div class = "worker">
+		{{worker.position}}
+		<img :src="require(`@/images1/${worker.image}`)">
+		{{worker.description}}
+		</div>
+	</span>
 </template>
 <script>
-   //import axios from 'axios'
-   import workersData from '/workers.json'
+   import axios from 'axios'
+   // import workersData from '/workers.json'
 	export default {
-		/*data(){
-			info: null},
+		data(){
+         return {
+            info: []
+  			}
+  		},
 		mounted(){
 			axios
-			.get('http://localhost:3000/workers')
-			.then(response=>(this.info = response.data))
-		},*/
+			.get('https://api.jsonbin.io/v3/qs/6331f26b5c146d63caaa11ef')
+			.then(response=>(this.info = response.data.record.workers))
+		},
 		computed:{
 			workerId(){
 				return parseInt(this.$route.params.id)
 			},
-			/*worker(){
-				return this.info.workers.find(worker => worker.id === this.workerId)
-			},*/
-
 			worker(){
-				return workersData.workers.find(worker => worker.id === this.workerId)
-			}
+				console.log(this.info)
+				return this.info.find(worker => worker.id === this.workerId)
+			},
+
+			// worker(){
+			// 	// debugger;
+			// 	console.log(workersData.workers.find(worker => worker.id === this.workerId))
+			// 	// return workersData.workers.find(worker => worker.id === this.workerId)
+			// }
 		}
 	}
 	

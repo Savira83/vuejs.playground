@@ -42,18 +42,10 @@ a:visited {
 
 }
 /*pages*/
-.iryna img{
+.worker img{
   max-width: 230px;
 }
-.maryna img{
-  max-width: 230px;
-}
-.oleg img{
-  max-width: 230px;
-}
-.diana img{
-  max-width: 230px;
-}
+
 /* Home */
 .home img {
   max-width: 230px;
@@ -86,10 +78,18 @@ a:visited {
   opacity: 0.7;
   transition: 0.2 ease color;
 }
+.workers{
+  display: inline-block;
+  margin-right: 20px;
+  color: white;
+  opacity: 0.7;
+  transition: 0.2 ease color;
+}
 #nav a.router-link-active,
 #nav a:hover {
   color: green;
 }
+
 #logo {
   font-weight: bold;
   font-size: 1.5rem;

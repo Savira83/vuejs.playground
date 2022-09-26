@@ -1,13 +1,13 @@
 <template>
   <div>
     <header class="header">
-    <div id = "nav">  
+    <div class = "nav" id="nav">
       <router-link to ="/addHome">Home</router-link>
-      <router-link to = "/addIryna">Iryna</router-link>
-      <router-link to = "/addMaryna">Maryna</router-link>
-      <router-link to = "/addOleg">Oleg</router-link>
-      <router-link to = "addDiana">Diana</router-link>
-      <router-link to="/notFound">Broken link</router-link>
+      <div class="workers" v-for="(worker, id) in info" :key="id"> <router-link  :to ="{name: 'workersDetales',  params: {id: worker.id}}">{{worker.name}}
+    </router-link></div>
+      
+      
+    
       </div>
       </header>
     <div class="container"><router-view></router-view></div>
@@ -20,11 +20,24 @@
 </template>
 
 <script>
-
+import workersData from '/workers.json'
+//import axios from 'axios'
 export default {
   name: 'App',
-  }
-
+  
+  
+    data(){
+      return{
+        info: workersData.workers
+        //info: null
+      }
+    },
+   /* mounted(){
+      axios
+      .get('http://localhost:3000/workers')
+      .then(response=>(this.info = response.data))
+    }*/
+ }
 </script>
 
 <style>

@@ -3,4 +3,9 @@ import App from './App.vue'
 //import axios from 'axios'
 import store from './store/store'
 
-createApp(App, store).mount('#app')
+const app = createApp(App)
+
+app.use(store)
+
+app.mount('#app')
+// createApp(App, store).mount('#app')

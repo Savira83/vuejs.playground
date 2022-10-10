@@ -1,15 +1,17 @@
 <template>
+ 
+  <add-Workers></add-Workers>
   
-  <addCounter/>
 </template>
 
 <script>
-import addCounter from './components/addCounter.vue'
+import addWorkers from './components/addWorkers.vue'
 
 export default {
   name: 'App',
   components: {
-    addCounter
+    addWorkers,
+    
   }
 }
 </script>

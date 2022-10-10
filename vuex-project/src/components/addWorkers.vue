@@ -1,25 +1,22 @@
 <template>
-  <div>
-    <button @click = 'increment'>+</button>
-    {{count}}
-    <button @click = 'decrement'>-</button>
+  <div v-for = "worker in workers" :key = "worker.id">
+    {{worker.name}}
   </div>
 </template>
 <script>
+
 export default{
-  data(){
-    return {
-      count: 0}
+ 
+  computed:{
+    workers(){
+      return this.$store.state.workers
     },
-  methods:{
-    decrement(){
-      this.count--
-    },
-    increment(){
-      this.count++
+    mounted(){
+      this.$store.dispatch("getWorkers")
     }
-  } 
-  
+  }
+
+
 }
 </script>
 

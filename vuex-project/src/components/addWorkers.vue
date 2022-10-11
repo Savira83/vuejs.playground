@@ -6,17 +6,17 @@
 <script>
 
 export default{
+   
  
   computed:{
     workers(){
       return this.$store.state.workers
     },
-    mounted(){
+   
+  },
+  mounted(){
       this.$store.dispatch("getWorkers")
-    }
-  }
-
-
+    },
 }
 </script>
 

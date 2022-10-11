@@ -20,7 +20,7 @@ const store = createStore({
 			this.state.workers = workers
 		}
 	},
-	getters:{}
+	getters:{}	
 
 })
 

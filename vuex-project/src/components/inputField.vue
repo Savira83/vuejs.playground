@@ -1,28 +1,30 @@
 <template>
 	<div>
-		<form @submit.prevent="addName">
+		<form @submit.prevent="addWorkers">
 			<label>Name:
-		<input type="text" v-model = 'name'><button type = "submit">Add</button>
-	</label>
+				<input type="text" v-model="name"><button type = "submit">Add</button>
+			</label>
 		</form>
 		
 	</div>
 </template>
 <script>
-import axios from 'axios'
+
 export default{
-	data(){
-		return{
-			name: ''
-		}
+data(){
+		return {name:' '}
 	},
-	methods:{
-		addName(){
-			axios
-		.post('hhttps://api.jsonbin.io/v3/b/6332e23da1610e63863a9645', {name: this.name})
-		this.name = ""
-	}	
-	
-}
+workers(){
+		return this.$store.state.workers
+	},
+mounted(){
+	this.$store.dispatch('getWorkers')
+	},
+methods:{
+	addWorkers(){
+		this.$store.dispatch('addWorkers',{name: this.name})
+		this.name=''
+		}
+	}
 }
 </script>

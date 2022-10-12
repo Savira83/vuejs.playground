@@ -1,5 +1,8 @@
 <template>
   <div >
+    <div>
+      <input-field></input-field>
+    </div>
   <div class="container">
     <add-Workers></add-Workers>
   </div>
@@ -16,11 +19,13 @@
 <script>
 import addWorkers from './components/addWorkers.vue'
 import addWorkerstwo from './components/addWorkerstwo.vue'
+import inputField from './components/inputField.vue'
 export default {
   name: 'App',
   components: {
     addWorkers,
-    addWorkerstwo
+    addWorkerstwo,
+    inputField
 
     
   }

@@ -11,11 +11,7 @@
   </div>
    
   </div>
- 
-  
-  
 </template>
-
 <script>
 import addWorkers from './components/addWorkers.vue'
 import addWorkerstwo from './components/addWorkerstwo.vue'
@@ -26,8 +22,6 @@ export default {
     addWorkers,
     addWorkerstwo,
     inputField
-
-    
   }
 }
 </script>

@@ -5,7 +5,6 @@
 				<input type="text" v-model="name"><button type = "submit">Add</button>
 			</label>
 		</form>
-		
 	</div>
 </template>
 <script>

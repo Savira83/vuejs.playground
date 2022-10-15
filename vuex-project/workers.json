@@ -1,27 +1,199 @@
-{ "workers":[
-	{"id": 1,
-	 "name": "Iryna",
-	 "position": "head of sector",
-	"slug": "addIryna",
-	"image": "iryna.jpg",
-	"description": "add description..."},
-	{"id": 2,
-	 "name": "Maryna",
-	 "position": "counter",
-	"slug": "addMaryna",
-	"image": "maryna.jpg",
-	"description": "add description..."},
-	{"id":3,
-	 "name": "Oleg",
-	 "position":"head of sector",
-	"slug":"addOleg",
-	"image":"oleg.jpg",
-    "description": "add description..."},
-	 {"id":4,
-	  "name":"Diana",
-	  "position":"chief specialist",
-	 "slug": "addDiana",
-	"image":"diana.jpg",
-	"description": "add description..."}
-]
+{
+  "workers": [
+    {
+      "id": 1,
+      "name": "Iryna",
+      "position": "head of sector",
+      "slug": "addIryna",
+      "image": "iryna.jpg",
+      "description": "add description..."
+    },
+    {
+      "id": 2,
+      "name": "Maryna",
+      "position": "counter",
+      "slug": "addMaryna",
+      "image": "maryna.jpg",
+      "description": "add description..."
+    },
+    {
+      "id": 3,
+      "name": "Oleg",
+      "position": "head of sector",
+      "slug": "addOleg",
+      "image": "oleg.jpg",
+      "description": "add description..."
+    },
+    {
+      "id": 4,
+      "name": "Diana",
+      "position": "chief specialist",
+      "slug": "addDiana",
+      "image": "diana.jpg",
+      "description": "add description..."
+    },
+    {
+      "name": " Yrii",
+      "id": 5
+    },
+    {
+      "isTrusted": true,
+      "id": 6
+    },
+    {
+      "isTrusted": true,
+      "id": 7
+    },
+    {
+      "isTrusted": true,
+      "id": 8
+    },
+    {
+      "isTrusted": true,
+      "id": 9
+    },
+    {
+      "isTrusted": true,
+      "id": 10
+    },
+    {
+      "isTrusted": true,
+      "id": 11
+    },
+    {
+      "isTrusted": true,
+      "id": 12
+    },
+    {
+      "name": {
+        "isTrusted": true
+      },
+      "id": 13
+    },
+    {
+      "name": {
+        "isTrusted": true
+      },
+      "id": 14
+    },
+    {
+      "name": {
+        "isTrusted": true
+      },
+      "id": 15
+    },
+    {
+      "name": {
+        "isTrusted": true
+      },
+      "id": 16
+    },
+    {
+      "name": {
+        "isTrusted": true
+      },
+      "id": 17
+    },
+    {
+      "name": {
+        "isTrusted": true
+      },
+      "id": 18
+    },
+    {
+      "name": {
+        "isTrusted": true
+      },
+      "id": 19
+    },
+    {
+      "name": "",
+      "id": 20
+    },
+    {
+      "name": "",
+      "id": 21
+    },
+    {
+      "id": 22
+    },
+    {
+      "id": 23
+    },
+    {
+      "id": 24
+    },
+    {
+      "id": 25
+    },
+    {
+      "name": "111",
+      "id": 26
+    },
+    {
+      "name": "222",
+      "id": 27
+    },
+    {
+      "name": "",
+      "id": 28
+    },
+    {
+      "name": "33",
+      "id": 29
+    },
+    {
+      "name": "",
+      "id": 30
+    },
+    {
+      "name": "",
+      "id": 31
+    },
+    {
+      "name": "Jkz",
+      "id": 32
+    },
+    {
+      "name": "111",
+      "id": 33
+    },
+    {
+      "id": 34
+    },
+    {
+      "id": 35
+    },
+    {
+      "id": 36
+    },
+    {
+      "id": 37
+    },
+    {
+      "id": 38
+    },
+    {
+      "id": 39
+    },
+    {
+      "id": 40
+    },
+    {
+      "id": 41
+    },
+    {
+      "id": 42
+    },
+    {
+      "id": 43
+    },
+    {
+      "id": 44
+    },
+    {
+      "name": "",
+      "id": 45
+    }
+  ]
 }

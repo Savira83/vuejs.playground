@@ -8,16 +8,23 @@ const store = createStore({
 	actions:{
 		getWorkers({commit}){
 		axios
-		.get('https://api.jsonbin.io/v3/b/6332e23da1610e63863a9645')
+		.get('http://localhost:3000/workers')
 		.then(response=>{
-		commit('SET_WORKERS', response.data.record.workers)
+		commit('SET_WORKERS', response.data)
 			})
 		},
 		addWorkers({commit}, data){
 			axios 
-			.post('https://api.jsonbin.io/v3/b/6332e23da1610e63863a9645', {data:data, headers:{"X-Master-Key": "$2b$10$pBbClepM.MQwO9CbBnQC3e2G6Swr8AF9.ankDxYoG4.O6Led2kpdm"}})
+			.post('http://localhost:3000/workers', data)
 			.then(response=>{
-			commit('NEW_WORKERS', response.data.record.workers)
+			commit('NEW_WORKERS', response.data)
+			})
+		},
+		editName({commit}, data){
+			axios 
+			.post('http://localhost:3000/workers', data)
+			.then(response=>{
+			commit('EDIT_NAME', response.data)
 			})
 		}
 	},	
@@ -27,6 +34,20 @@ const store = createStore({
 		},
 		NEW_WORKERS(state, name){
 			this.state.workers.name = state.workers.unshift(name)
+		},
+		EDIT_NAME(state,  oldName){
+			let index = this.state.workers.findIndex( i => i.name === oldName.name);
+			if (index > -1){
+				
+				this.state.workers[index] = state.workers[index].name.promt('');
+
+			} 
+
+
+
+
+
+
 		}
 
 	},

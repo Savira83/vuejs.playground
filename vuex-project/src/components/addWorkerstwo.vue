@@ -1,6 +1,6 @@
 <template>
   <div v-for = "worker in workers" :key = "worker.id">
-    {{worker.name}} <edit-name></edit-name>
+    {{worker.name}} <edit-name  :id = "worker.id"> </edit-name>
   </div>
 </template>
 <script>

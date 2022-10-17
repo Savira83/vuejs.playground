@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<button @click = "editName">edit</button>
+		<button @click = "$emit('editName')">edit</button>
 	</div>	
 </template>
 <script>
@@ -10,18 +10,11 @@ export default{
 		return {name: ''}
 	},
 	props:['id'],
-/*computed: {
+computed: {
 workers(){
 	return this.$store.state.workers
 	},
 },
-/*mounted(){
-	this.$store.dispatch('getWorkers')
-	},*/
-methods:{
-	editName(){
-		return alert(this.id)
-	}
-}
+
 }
 </script>

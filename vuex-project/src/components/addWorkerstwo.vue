@@ -1,6 +1,6 @@
 <template>
   <div v-for = "(worker, id) in workers" :key = "id">
-    {{worker.name}} <edit-name   :id = "worker.id" :name ="worker.name" @edit-name = "editName(id)">  </edit-name>
+    {{worker.name}} <edit-name   :id = "worker.id" >  </edit-name>
   </div>
 </template>
 <script>
@@ -14,18 +14,12 @@ export default{
   },
   computed: {
     workers(){
-      return this.$store.state.workers
+      return this.$store.getters.getWorkers
     },
   },
   mounted(){
       this.$store.dispatch("getWorkers")
     },
-    methods:{
-      editName(id){
-        let newName = this.$store.state.workers[id]
-        newName.name = prompt()
-        this.$store.dispatch('editName',  {name:newName.name})
-      }
-    }
+    
 }
 </script>

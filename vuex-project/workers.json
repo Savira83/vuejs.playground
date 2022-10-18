@@ -25,27 +25,23 @@
       "description": "add description..."
     },
     {
-      "id": 4,
-      "name": "Diana",
-      "position": "chief specialist",
-      "slug": "addDiana",
-      "image": "diana.jpg",
-      "description": "add description..."
+      "name": " 2222",
+      "id": 4
     },
     {
       "name": " Yrii",
       "id": 5
     },
     {
-      "name": "Olga",
+      "name": null,
       "id": 6
     },
     {
-      "name": "66666",
+      "name": "2222",
       "id": 7
     },
     {
-      "name": "77777",
+      "name": "1111",
       "id": 8
     }
   ]

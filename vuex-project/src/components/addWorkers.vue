@@ -1,6 +1,6 @@
 <template>
   <div v-for = "(worker, id) in workers" :key = "id">
-    {{worker.name}}<delete-name @delete-element="deletetElement(id)"></delete-name>
+    {{worker.name}}<delete-name :id = "worker.id" ></delete-name>
   </div>
 </template>
 <script>
@@ -17,11 +17,11 @@ export default{
   mounted(){
       this.$store.dispatch("getWorkers")
     },
-    methods:{
+   /* methods:{
         deletetElement(id){
         this.$store.state.workers[id].splice(id,1);
       }
-    }
+    }*/
 }
 </script>
 

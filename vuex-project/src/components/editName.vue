@@ -16,10 +16,9 @@ export default {
     },
     methods: {
         editName(id) {
-            //console.log(this.$store.state.workers[id])
-            let newName = this.$store.state.workers[id-1].name
-            let name = prompt("edd new name", newName)
-            this.$store.dispatch('editName', { name: name, id: id })
+            let newName = this.$store.state.workers[id - 1].name;
+            let name = prompt("edd new name", newName);
+            this.$store.dispatch('editName', { name: name, id: id });
         }
     }
 }

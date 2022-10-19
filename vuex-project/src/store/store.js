@@ -22,16 +22,16 @@ const store = createStore({
         },
         editName({ commit }, data) {
             axios
-                .patch(`//localhost:3000/workers/}${data.id} `, data, {header: {'Content-Type': 'application/json'}})
+                .patch(`//localhost:3000/workers/${data.id} `, data)
                 .then(response => {
                     commit('EDIT_NAME', response.data)
                 })
         },
-        deleteWorker({ commit }, id) {
+        deleteWorker({ commit }, data) {
             axios
-                .delete(`//localhost:3000/workers/}${id} `, id, )
+                .delete(`//localhost:3000/workers/${data.id} `, data )
                 .then(response => {
-                    commit('EDIT_NAME', response.data)
+                    commit('DELETE_WORKER', response.data)
                 })
         }
 
@@ -43,17 +43,25 @@ const store = createStore({
         NEW_WORKERS(state, name) {
             this.state.workers.name = state.workers.unshift(name)
         },
-        EDIT_NAME(state, newName) {
-            state.workers.name = newName;
+        EDIT_NAME(state, data) {
+            let index =state.workers.indexOf(state.workers[data.id-1]);
+            state.workers[index].name=data.name;
+            console.log(index);
+            console.log(data.name)
         },
-        DELETE_WORKER(state, worker) {
-            state.workers = worker
+        DELETE_WORKER(state, data) {
+            let index =state.workers.indexOf(state.workers[data.id-1])
+            state.workers[index] = data.workers
+            console.log(data)
 
         }
     },
     getters: {
         getWorkers(state) {
             return state.workers
+        },
+        getWorkersById(state, id) {
+            return state.workers.find(i =>i.id === id)
         },
     }
 })

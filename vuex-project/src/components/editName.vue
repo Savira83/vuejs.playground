@@ -9,16 +9,11 @@ export default {
         return { name: '' }
     },
     props: ['id'],
-    computed: {
-        workers() {
-            return this.$store.getters.getWorkers
-        },
-    },
     methods: {
         editName(id) {
-            let newName = this.$store.state.workers[id - 1].name;
-            let name = prompt("edd new name", newName);
-            this.$store.dispatch('editName', { name: name, id: id });
+            let oldName = this.$store.getters.getWorkerById(id).name;
+            let name = prompt("edd new name", oldName);
+           this.$store.dispatch('editName', { name: name, id: id })
         }
     }
 }

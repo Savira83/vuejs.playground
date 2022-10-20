@@ -13,7 +13,7 @@ const store = createStore({
                     commit('SET_WORKERS', response.data)
                 })
         },
-        addWorkers({ commit },  data) {
+        addWorkers({ commit }, data) {
             axios
                 .post('http://localhost:3000/workers', data)
                 .then(response => {
@@ -29,41 +29,40 @@ const store = createStore({
         },
         deleteWorker({ commit }, data) {
             axios
-                .delete(`//localhost:3000/workers/${data.id} `, data )
-                .then(response => {
-                    commit('DELETE_WORKER', response.data)
+                .delete(`//localhost:3000/workers/${data.id}`)
+                .then(() => {
+                    commit('DELETE_WORKER', data)
                 })
         }
-
     },
     mutations: {
         SET_WORKERS(state, workers) {
             this.state.workers = workers
         },
         NEW_WORKERS(state, name) {
-            this.state.workers.name = state.workers.unshift(name)
+            this.state.workers.name = state.workers.push(name)
         },
         EDIT_NAME(state, data) {
-            let index =state.workers.indexOf(state.workers[data.id-1]);
-            state.workers[index].name=data.name;
-            console.log(index);
-            console.log(data.name)
+            // let index = state.workers.indexOf(state.workers[data.id - 1]);
+            // state.workers[index].name = data.name;
+            let worker = this.getters.getWorkerById(data.id)
+            worker.name = data.name;
         },
         DELETE_WORKER(state, data) {
-            let index =state.workers.indexOf(state.workers[data.id-1])
-            state.workers[index] = data.workers
-            console.log(data)
-
+            // let index = state.workers.indexOf(state.workers[data.id])
+            let index = state.workers.findIndex(object => {
+                return object.id === data.id;
+            })
+            state.workers.splice(index,1)
         }
     },
     getters: {
         getWorkers(state) {
             return state.workers
         },
-        getWorkersById(state, id) {
-            return state.workers.find(i =>i.id === id)
+        getWorkerById: (state) => (id) => {
+            return state.workers.find((i) => i.id === id)
         },
     }
 })
-
 export default store;

@@ -1,13 +1,13 @@
 <template>
     <div v-for="(worker, id) in workers" :key="id">
-        {{worker.name}}<delete-name :id="worker.id"></delete-name>
+        {{worker.name}}<delete-worker :id="worker.id"></delete-worker>
     </div>
 </template>
 <script>
-import deleteName from './deleteName.vue'
+import deleteWorker from './deleteWorker.vue'
 export default {
     components: {
-        deleteName,
+        deleteWorker,
     },
     computed: {
         workers() {

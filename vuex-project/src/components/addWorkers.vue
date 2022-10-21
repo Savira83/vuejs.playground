@@ -5,15 +5,20 @@
 </template>
 <script>
 import deleteWorker from './deleteWorker.vue'
+import { mapState } from 'vuex'
 export default {
     components: {
         deleteWorker,
     },
     computed: {
-        workers() {
-            return this.$store.state.workers
-        },
+        ...mapState([
+            'workers'
+        ])
     },
+        /*workers() {
+            return this.$store.state.workers
+        },*/
+
     mounted() {
         this.$store.dispatch("getWorkers")
     },

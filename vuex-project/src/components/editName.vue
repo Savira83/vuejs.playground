@@ -1,26 +1,33 @@
 <template>
     <div>
-        <button @click="editName(id)">edit</button>
+        <button @click="editNameWorker(id)">edit</button>
     </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions} from 'vuex'
 export default {
     data() {
         return { name: '' }
     },
     props: ['id'],
     computed:{
-        ...mapGetters(['getWorkerById'])
+        ...mapGetters(['getWorkerById' ])
     },
     methods: {
-        editName(id) {
-            // let oldName = this.$store.getters.getWorkerById(id).name;
+        ...mapActions({worker:'editName'}),
+        editNameWorker(id){
+            let oldName  = this.getWorkerById(id).name;
+            let name = prompt("edd new name", oldName);
+            this.worker({ name: name, id: id })
+        }
+        /*editName(id) {
+            let oldName = this.$store.getters.getWorkerById(id).name;
             let oldName  = this.getWorkerById(id).name
             let name = prompt("edd new name", oldName);
            this.$store.dispatch('editName', { name: name, id: id })
-           console.log(this.getWorkerById(id))
-        }
+            console.log(oldName)
+           
+        }*/
     }
 }
 </script>

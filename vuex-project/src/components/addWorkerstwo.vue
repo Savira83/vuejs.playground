@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions} from 'vuex'
 import editName from './editName.vue'
 export default {
     data() {
@@ -21,8 +21,10 @@ export default {
             return this.$store.getters.getWorkers
         },*/
     },
-    mounted() {
-        this.$store.dispatch("getWorkers")
+     methods: {
+        ...mapActions([
+            'getWorkers'])
+
     },
 }
 </script>

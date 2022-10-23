@@ -5,7 +5,7 @@
 </template>
 <script>
 import deleteWorker from './deleteWorker.vue'
-import { mapState, mapActions} from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
     components: {
         deleteWorker,
@@ -19,13 +19,14 @@ export default {
             return this.$store.state.workers
         },*/
 
-    /*mounted() {
+   /* mounted() {
         this.$store.dispatch("getWorkers")
     },*/
     methods: {
         ...mapActions([
-            'getWorkers'])
-
+            'getWorkers'
+        ])
     },
-}
+    }
+    
 </script>

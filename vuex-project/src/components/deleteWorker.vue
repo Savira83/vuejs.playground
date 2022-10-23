@@ -16,7 +16,7 @@ export default {
 }
 /*or like this
         methods: {
-        ...mapActions(['deleteWorker']),
+        ...mapActions({delete:'deleteWorker'}),
         deleteWorker(id){
             this.delete({id:id})
         }

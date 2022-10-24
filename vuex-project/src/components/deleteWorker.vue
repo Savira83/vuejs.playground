@@ -14,14 +14,4 @@ export default {
         ...mapActions(['deleteWorker']),
     }
 }
-/*or like this
-        methods: {
-        ...mapActions({delete:'deleteWorker'}),
-        deleteWorker(id){
-            this.delete({id:id})
-        }
-        }
-    then
-    @click=" deleteWorker(id)"
-    */
 </script>

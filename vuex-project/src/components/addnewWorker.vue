@@ -2,27 +2,31 @@
 	<div>
 		<form @submit.prevent="addWorkers">
 			<label>Name:
-				<input type="text" v-model="name"><button type = "submit">Add</button>
+				<input type="text" v-model="name">	
 			</label>
+			<label>Age:
+				<input type="text" v-model="age">	
+			</label>
+			<button type = "submit">Add</button>
 		</form>
 	</div>
 </template>
 <script>
-
+import {mapActions} from 'vuex'
 export default{
 data(){
-		return {name:' '}
-	},
-workers(){
-		return this.$store.state.workers
-	},
-mounted(){
-	this.$store.dispatch('getWorkers')
+		return {
+			name:' ',
+			age:''}
 	},
 methods:{
+	...mapActions({
+		newWorkerName:'addNewWorkerData',
+		}),
 	addWorkers(){
-		this.$store.dispatch('addWorkers',{name: this.name})
+		this.newWorkerName({name: this.name, age: this.age})
 		this.name=''
+		this.age=''
 		}
 	}
 }

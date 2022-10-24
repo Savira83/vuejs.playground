@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 import editName from './editName.vue'
 export default {
     data() {
@@ -18,10 +18,10 @@ export default {
             'workers'
         ])
     },
-    methods: {
+    /*methods: {
         ...mapActions([
             'getWorkers'
         ])
-    },
+    },*/
 }
 </script>

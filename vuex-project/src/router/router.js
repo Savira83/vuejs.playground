@@ -2,7 +2,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import addnewWorker from '../components/addnewWorker.vue'
 import addWorkerstwo from '../components/addWorkerstwo.vue'
-import addWorkers from '../components/addWorkers.vue'
+import workersList from '../components/workersList.vue'
 
 
 
@@ -11,7 +11,7 @@ const router = createRouter({
 	routes: [
 	{path: '/addnewWorker', name: 'newWorker', component: addnewWorker},
 	{path: '/addWorkerstwo', name: 'workerstwo', component: addWorkerstwo},
-	{path: '/addWorkers', name: 'workers', component: addWorkers},
+	{path: '/workersList', name: 'workers', component: workersList},
 
 	]
 	

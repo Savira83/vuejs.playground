@@ -13,13 +13,14 @@ const store = createStore({
                     commit('SET_WORKERS', response.data)
                 })
         },
-        addWorkers({ commit }, data) {
+        addNewWorkerData({ commit }, data) {
             axios
                 .post('http://localhost:3000/workers', data)
                 .then(response => {
-                    commit('NEW_WORKERS', response.data)
+                    commit('NEW_WORKERS_DATA', response.data)
                 })
         },
+        
         editName({ commit }, data) {
             axios
                 .patch(`//localhost:3000/workers/${data.id} `, data)
@@ -37,10 +38,12 @@ const store = createStore({
     },
     mutations: {
         SET_WORKERS(state, workers) {
-            this.state.workers = workers
+            this.state.workers = workers;
+        
         },
-        NEW_WORKERS(state, name) {
+        NEW_WORKERS_DATA(state, name, age) {
             this.state.workers.name = state.workers.push(name)
+            this.state.workers.age = state.workers.push(age)
         },
         EDIT_NAME(state, data) {
             // let index = state.workers.indexOf(state.workers[data.id - 1]);

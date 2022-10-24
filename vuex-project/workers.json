@@ -1,15 +1,28 @@
 {
   "workers": [
     {
-      "name": "1",
+      "name": " Oleg",
+      "age": "53",
+      "id": 1
+    },
+    {
+      "name": "Diana",
+      "age": "25",
+      "id": 2
+    },
+    {
+      "name": "Yurii",
+      "age": "28",
       "id": 3
     },
     {
-      "name": "2",
+      "name": " Oksana",
+      "age": "45",
       "id": 4
     },
     {
-      "name": "3",
+      "name": " Maryna",
+      "age": "33",
       "id": 5
     }
   ]

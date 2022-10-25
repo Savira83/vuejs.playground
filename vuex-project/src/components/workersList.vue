@@ -1,6 +1,6 @@
 <template>
     <div v-for="(worker, id) in workers" :key="id">
-        Name: {{worker.name}}  Age: {{worker.age}}<delete-worker :id="worker.id"></delete-worker>
+        Name: {{worker.name}} <br>  Age: {{worker.age}} <br> <delete-worker :id="worker.id"></delete-worker>
     </div>
 </template>
 <script>
@@ -14,6 +14,7 @@ export default {
         ...mapState([
             'workers'
         ]),
+        
     },
      methods: {
         ...mapActions(['getWorkers'])

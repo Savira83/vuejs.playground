@@ -17,7 +17,8 @@ export default{
 data(){
 		return {
 			name:' ',
-			age:''}
+			age:'',
+		}
 	},
 methods:{
 	...mapActions({
@@ -27,6 +28,8 @@ methods:{
 		this.newWorkerName({name: this.name, age: this.age})
 		this.name=''
 		this.age=''
+		
+
 		}
 	}
 }

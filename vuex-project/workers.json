@@ -6,24 +6,9 @@
       "id": 1
     },
     {
-      "name": "Diana",
-      "age": "25",
+      "name": "Maryna",
+      "age": "32",
       "id": 2
-    },
-    {
-      "name": "Yurii",
-      "age": "28",
-      "id": 3
-    },
-    {
-      "name": " Oksana",
-      "age": "45",
-      "id": 4
-    },
-    {
-      "name": " Maryna",
-      "age": "33",
-      "id": 5
     }
   ]
 }

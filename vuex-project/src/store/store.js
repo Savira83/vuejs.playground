@@ -41,7 +41,7 @@ const store = createStore({
             this.state.workers = workers;
         
         },
-        NEW_WORKERS_DATA(state, name, age) {
+        NEW_WORKERS_DATA(state, {name, age}) {
             this.state.workers.name = state.workers.push(name)
             this.state.workers.age = state.workers.push(age)
         },

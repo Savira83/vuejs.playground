@@ -36,36 +36,52 @@ const store = createStore({
                 })
         }
     },
+    changeStatus({commit}, data){
+        axios
+        .patch(`//localhost:3000/workers/${data.id} `, data)
+                .then(response => {
+                    commit('CHANGE_STATUS', response.data)
+                })
+    },
     mutations: {
         SET_WORKERS(state, workers) {
             this.state.workers = workers;
         
         },
-        NEW_WORKERS_DATA(state, {name, age}) {
-            this.state.workers.name = state.workers.push(name)
-            this.state.workers.age = state.workers.push(age)
+        NEW_WORKERS_DATA(state, worker) {
+            state.workers.push(worker)
+           
         },
         EDIT_NAME(state, data) {
-            // let index = state.workers.indexOf(state.workers[data.id - 1]);
-            // state.workers[index].name = data.name;
             let worker = this.getters.getWorkerById(data.id)
             worker.name = data.name;
+            worker.age = data.age;
+            worker.position = data.position
+            worker.status = data.status
+
         },
         DELETE_WORKER(state, data) {
-            // let index = state.workers.indexOf(state.workers[data.id])
             let index = state.workers.findIndex(object => {
                 return object.id === data.id;
             })
             state.workers.splice(index,1)
         }
     },
+    CHANGE_STATUS(state, data){
+        let worker = this.getters.getWorkerById(data.id)
+        worker.status = data.status
+    },
     getters: {
         getWorkers(state) {
             return state.workers
         },
-        getWorkerById: (state) => (id) => {
+        getWorkerById:(state) => (id) => {
             return state.workers.find((i) => i.id === id)
         },
+         getWorkerIndex: (state) => (id) => {
+            return state.workers.findIndex((i) => i.id === id);
+            }
+        
     }
 })
 export default store;

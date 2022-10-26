@@ -1,14 +1,17 @@
 <template>
-    <div v-for="(worker, id) in workers" :key="id">
-        Name: {{worker.name}} <br>  Age: {{worker.age}} <br> <delete-worker :id="worker.id"></delete-worker>
+    <div class = "worker" v-for="(worker, ind) in workers" :key="ind">
+       {{ind+1}}. Name: {{worker.name}} <br>  Age: {{worker.age}} <br> Position:{{worker.position}}<br><span v-if="worker.status" id="workerId"> id:{{worker.id}}</span><delete-worker :id="worker.id"></delete-worker ><change-status :id="worker.id"></change-status> 
     </div>
 </template>
 <script>
 import deleteWorker from './deleteWorker.vue'
+import changeStatus from './changeStatus.vue'
+
 import {mapState, mapActions } from 'vuex'
 export default {
     components: {
         deleteWorker,
+        changeStatus
     },
     computed: {
         ...mapState([
@@ -24,3 +27,14 @@ export default {
     },
 }
 </script>
+ <style>
+ .worker{
+   border: solid;
+   border-color: green;
+   width: 150px;
+   margin: 10px;
+ }
+ #workerId{
+    color: red;
+ }
+    </style>

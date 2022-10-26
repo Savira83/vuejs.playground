@@ -2,13 +2,31 @@
   "workers": [
     {
       "name": " Oleg",
-      "age": "53",
+      "age": "52",
+      "position": "Head of sector",
+      "status": true,
       "id": 1
     },
     {
-      "name": "Maryna",
+      "name": " Maryna",
       "age": "32",
+      "position": "Counter",
+      "status": true,
       "id": 2
+    },
+    {
+      "name": " Diana",
+      "age": "24",
+      "position": "Chief specialist",
+      "status": true,
+      "id": 3
+    },
+    {
+      "name": " Yurii",
+      "age": "28",
+      "position": "Chief specialist",
+      "status": true,
+      "id": 4
     }
   ]
 }

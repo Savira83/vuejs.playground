@@ -2,10 +2,13 @@
 	<div>
 		<form @submit.prevent="addWorkers">
 			<label>Name:
-				<input type="text" v-model="name">	
+				<input type="text" v-model="worker.name">	
 			</label>
 			<label>Age:
-				<input type="text" v-model="age">	
+				<input type="text" v-model="worker.age">	
+			</label>
+			<label>Position:
+				<input type="text" v-model="worker.position">	
 			</label>
 			<button type = "submit">Add</button>
 		</form>
@@ -15,21 +18,19 @@
 import {mapActions} from 'vuex'
 export default{
 data(){
-		return {
+		return {worker :{
 			name:' ',
 			age:'',
-		}
+			position: '',
+			status: false}}
 	},
 methods:{
 	...mapActions({
 		newWorkerName:'addNewWorkerData',
 		}),
 	addWorkers(){
-		this.newWorkerName({name: this.name, age: this.age})
-		this.name=''
-		this.age=''
-		
-
+		this.newWorkerName(this.worker)
+		this.worker={}
 		}
 	}
 }

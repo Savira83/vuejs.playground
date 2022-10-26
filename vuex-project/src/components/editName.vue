@@ -7,19 +7,23 @@
 import { mapGetters, mapActions} from 'vuex'
 export default {
     data() {
-        return { name: '' }
-    },
+        return {worker :{
+            name:' ',
+            age:'',
+            position:''}}
+    },        
     props: ['id'],
     computed:{
         ...mapGetters(['getWorkerById' ])
     },
     methods: {
-        ...mapActions({worker:'editName'}),
+        ...mapActions({editName:'editWorkerData'}),
         editNameWorker(id){
             let oldName  = this.getWorkerById(id).name;
             let name = prompt("edd new name", oldName);
-            this.worker({ name: name, id: id })
+            this.editName({ name: name, id: id })
         }
+    
     }
 }
 </script>

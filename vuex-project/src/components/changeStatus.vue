@@ -17,13 +17,13 @@ export default {
 
     },
     methods: {
-        ...mapActions(['editName']),
+        ...mapActions(['editWorker']),
 
         getStatus(id) {
             let status = this.getWorkerById(id).status
 
             status = !status
-            this.editName({ status: status, id: id })
+            this.editWorker({ status: status, id: id })
             console.log(status)
         },
     }

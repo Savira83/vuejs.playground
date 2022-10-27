@@ -1,8 +1,8 @@
 <template>
     <div>
-        <form @submit.prevent="addWorkers">
+        <form>
             <label>Name:
-                <input type="text" v-model="worker.name">
+                <input v-model="worker.name">
             </label>
             <label>Age:
                 <input type="text" v-model="worker.age">
@@ -10,41 +10,35 @@
             <label>Position:
                 <input type="text" v-model="worker.position">
             </label>
-            <button type="submit">Add</button>
+            <button type="submit" @click.prevent="editWorkerData">Add</button>
         </form>
     </div>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
-    data() {
-        return {
-            worker: {
-                name: ' ',
-                age: '',
-                position: ''
-            }
-        }
-    },
+    props: ['id'],
     computed: {
         ...mapGetters(['getWorkerById']),
-        workerId() { 
-            return  this.getWorkerById({id:1})
-        }
-
-    },
-    methods: {
-        ...mapActions({
-            newWorkerName: 'addNewWorkerData',
-        }),
-        addWorkers() {
-
-            this.newWorkerName(this.worker)
-            this.worker = {}
+        worker: {
+            get() {
+                return this.getWorkerById(this.id)
+            },
+            set(value) {
+                this.$store.commit('EDIT_WORKER', value)
+            }
         },
     },
-    mounted() {
-
+    methods: {
+        ...mapActions(['editWorker']),
+        editWorkerData() {
+            let name = this.getWorkerById(this.id).name
+            let age = this.getWorkerById(this.id).age
+            let position = this.getWorkerById(this.id).position
+            if (confirm('Do you realy want to change data of worker')) {
+                this.editWorker({ name: name, age: age, position: position, id: this.id })
+            }
+        }
     }
 }
 </script>

@@ -1,17 +1,17 @@
 {
   "workers": [
     {
-      "name": " Oleg",
+      "name": "Oleg",
       "age": "52",
       "position": "Head of sector",
-      "status": true,
+      "status": false,
       "id": 1
     },
     {
       "name": " Maryna",
       "age": "32",
       "position": "Counter",
-      "status": true,
+      "status": false,
       "id": 2
     },
     {

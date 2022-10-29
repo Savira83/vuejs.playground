@@ -28,6 +28,12 @@ export default {
                 this.$store.commit('EDIT_WORKER', value)
             }
         },
+         // workerIdParams(){
+         //        return parseInt(this.$route.params.id)
+         //    },
+         //    workerId(){
+         //        return this.getWorkerById(this.id)
+         //    },
     },
     methods: {
         ...mapActions(['editWorker']),
@@ -35,7 +41,7 @@ export default {
             let name = this.getWorkerById(this.id).name
             let age = this.getWorkerById(this.id).age
             let position = this.getWorkerById(this.id).position
-            if (confirm('Do you realy want to change data of worker')) {
+            if (confirm('Do you realy want to change data of worker?')) {
                 this.editWorker({ name: name, age: age, position: position, id: this.id })
             }
         }

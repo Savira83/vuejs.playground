@@ -16,7 +16,7 @@ import editWorker from './editWorker.vue'
 import {mapState, mapActions, mapGetters} from 'vuex'
 export default {
     components: {
-        deleteWorker,
+        deleteWorker,P
         changeStatus,
         editWorker
     },
@@ -24,8 +24,10 @@ export default {
         ...mapState([
             'workers'
         ]),
-        ...mapGetters(['getWorkerById'])
+        ...mapGetters(['getWorkerById']),
+       
     },
+    
      methods: {
         ...mapActions(['getWorkers']),
 

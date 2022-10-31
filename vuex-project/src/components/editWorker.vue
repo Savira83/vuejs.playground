@@ -17,7 +17,9 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
-    props: ['id'],
+    data() {
+        is_edit: false
+    },
     computed: {
         ...mapGetters(['getWorkerById']),
         worker: {
@@ -28,12 +30,13 @@ export default {
                 this.$store.commit('EDIT_WORKER', value)
             }
         },
-         // workerIdParams(){
-         //        return parseInt(this.$route.params.id)
-         //    },
-         //    workerId(){
-         //        return this.getWorkerById(this.id)
-         //    },
+        id() {
+            const idWorker = this.$route.params.id;
+            if(idWorker){
+                is_edit = true
+            }
+            return parseInt(this.$route.params.id)
+        },
     },
     methods: {
         ...mapActions(['editWorker']),

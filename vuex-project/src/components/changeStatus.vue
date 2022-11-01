@@ -7,8 +7,8 @@ export default {
 
     data() {
         return {
-            worke
-            : { status: false }
+            worker
+            : { is_edit: false }
         }
     },
     props: ['id'],
@@ -20,10 +20,10 @@ export default {
         ...mapActions(['editWorker']),
 
         getStatus(id) {
-            let status = this.getWorkerById(id).status
+            let status = this.getWorkerById(id).is_edit
 
             status = !status
-            this.editWorker({ status: status, id: id })
+            this.editWorker({ is_edit: status, id: id })
             console.log(status)
         },
     }

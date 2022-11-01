@@ -22,7 +22,7 @@ data(){
 			name:' ',
 			age:'',
 			position: '',
-			status: false}}
+			is_edit: false}}
 	},
 methods:{
 	...mapActions({

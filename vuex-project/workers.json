@@ -1,31 +1,31 @@
 {
   "workers": [
     {
-      "name": "Oleg2",
-      "age": "52",
-      "position": "Head of sector",
-      "status": false,
+      "name": " 1118",
+      "age": "11156",
+      "position": "1116",
+      "is_edit": true,
       "id": 1
     },
     {
-      "name": " Maryna",
-      "age": "32",
-      "position": "Counter",
-      "status": false,
-      "id": 2
+      "name": "222",
+      "age": "222",
+      "position": "222",
+      "id": 2,
+      "is_edit": false
     },
     {
-      "name": " Diana",
-      "age": "24",
-      "position": "Chief specialist",
-      "status": true,
+      "name": "1",
+      "age": "2",
+      "position": "3",
+      "is_edit": false,
       "id": 3
     },
     {
-      "name": " Yurii",
-      "age": "28",
-      "position": "Chief specialist",
-      "status": true,
+      "name": "jgy",
+      "age": "kyg",
+      "position": "vytg",
+      "is_edit": false,
       "id": 4
     }
   ]

@@ -1,32 +1,22 @@
 {
   "workers": [
     {
-      "name": " 1118",
-      "age": "11156",
-      "position": "1116",
-      "is_edit": true,
-      "id": 1
-    },
-    {
-      "name": "222",
-      "age": "222",
-      "position": "222",
-      "id": 2,
-      "is_edit": false
-    },
-    {
       "name": "1",
       "age": "2",
       "position": "3",
-      "is_edit": false,
-      "id": 3
+      "id": 1
     },
     {
-      "name": "jgy",
-      "age": "kyg",
-      "position": "vytg",
-      "is_edit": false,
-      "id": 4
+      "name": "4",
+      "age": "4",
+      "position": "4",
+      "id": 2
+    },
+    {
+      "name": "44",
+      "age": "44",
+      "position": "444",
+      "id": 3
     }
   ]
 }

@@ -17,7 +17,7 @@ const store = createStore({
             axios
                 .post('http://localhost:3000/workers', data)
                 .then(response => {
-                    commit('NEW_WORKERS_DATA', response.data)
+                    commit('NEW_WORKER', response.data)
                 })
         },
         editWorker({ commit }, data) {
@@ -27,6 +27,7 @@ const store = createStore({
                     commit('EDIT_WORKER', response.data)
                 })
         },
+       
         deleteWorker({ commit }, data) {
             axios
                 .delete(`//localhost:3000/workers/${data.id}`)
@@ -37,10 +38,12 @@ const store = createStore({
     },
     mutations: {
         SET_WORKERS(state, workers) {
-            this.state.workers = workers;
+            state.workers = workers;
         },
-        NEW_WORKERS_DATA(state, worker) {
-            state.workers.push(worker)
+        NEW_WORKER(state, worker) {
+           state.workers.unshift(worker) 
+        //   let index = state.workers.findIndex((i) => i.id === worker.id);
+        // this.workers.splice(0, 0, this.workers.splice(index, 1)[0])
         },
          EDIT_WORKER(state, data) {
            const index = state.workers.findIndex((i) => i.id === data.id);
@@ -51,7 +54,8 @@ const store = createStore({
                 return object.id === data.id;
             })
             state.workers.splice(index, 1)
-        }
+        },
+       
     },
     getters: {
         getWorkers(state) {

@@ -34,16 +34,23 @@ const store = createStore({
                 .then(() => {
                     commit('DELETE_WORKER', data)
                 })
-        }
+        },
+        moveWorker({ commit }, data) {
+            axios
+                .patch(`//localhost:3000/workers/${data.id} `, data)
+                .then(response => {
+                    commit('MOVE_TO_START', response.data)
+                })
+        },
+
     },
     mutations: {
         SET_WORKERS(state, workers) {
             state.workers = workers;
         },
         NEW_WORKER(state, worker) {
-           state.workers.unshift(worker) 
-        //   let index = state.workers.findIndex((i) => i.id === worker.id);
-        // this.workers.splice(0, 0, this.workers.splice(index, 1)[0])
+           state.workers.push(worker) 
+    
         },
          EDIT_WORKER(state, data) {
            const index = state.workers.findIndex((i) => i.id === data.id);
@@ -55,6 +62,11 @@ const store = createStore({
             })
             state.workers.splice(index, 1)
         },
+        MOVE_TO_START(state, data){
+        let index = state.workers.findIndex((i) => i.id === data.id);
+        state.workers.splice(0, 0, state.workers.splice(index, 1)[0])
+
+        }
        
     },
     getters: {

@@ -11,14 +11,17 @@
           @click="toggleLeftDrawer"
         />
 
-       <div class="q-px-lg q-pt-xl q-mb-md">
-          <div class="text-h3">Department</div>
+       <div class="q-px-lg q-pt-xl q-mb-md">s
+          <div class="text-h3"> My Tasks</div>
           <div class="text-subtitle1">Sandey 6 November</div>
         </div>
         <q-img 
         class="header-image absolute-top"
           src="https://scontent-dfw5-2.xx.fbcdn.net/v/t31.18172-8/22459223_105251463569517_3371037411247143166_o.jpg?_nc_cat=107&ccb=1-7&_nc_sid=e3f864&_nc_ohc=oqBk0sNXCHcAX-1-KnN&_nc_ht=scontent-dfw5-2.xx&oh=00_AfA_CM4f-q63SIsC42A5RV7tzTyG5nuwwGAqc1bHHDvvww&oe=638F5F32"/>
-      
+          <!-- <q-img 
+       class="header-image absolute-top"
+          src="photos/department.jpg "/>
+       --> 
       </q-toolbar>
     </q-header>
 
@@ -39,8 +42,8 @@
               </q-item-section>
 
               <q-item-section>
-                Department
-              </q-item-section>
+                Tasks
+             </q-item-section>
             </q-item>
 
             
